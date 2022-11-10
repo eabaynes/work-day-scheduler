@@ -1,4 +1,4 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
+ // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
@@ -47,3 +47,7 @@ $(function () {
   // MINE for date: run day.js for 3 letter month, 2 digit day, and full year
   // MINE append to id currentDay
 });
+
+// day.js insert for current date in "month day, year" format
+const date = dayjs();
+$('#currentDay').text(date.format('MMM D, YYYY'));
