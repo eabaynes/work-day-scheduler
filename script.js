@@ -2,6 +2,10 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+// select buttons in html
+const buttons = document.querySelectorAll('button')
+const hours = document.querySelectorAll('#hour-6, #hour-7, #hour-8, #hour-9, #hour-10, #hour-11, #hour-12, #hour-13, #hour-14, #hour-15, #hour-16, #hour-17, #hour-18')
+console.log(hours)
 // MINE review jquery, missed intro class. don't know what "wrap code in jquery" means
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -12,27 +16,13 @@ $(function () {
   // useful when saving the description in local storage?
   
   //MINE
-  // add global variable hours to query.selectorAll (id=hour-x) if possible
-  // add global variable buttons to query.selectorALL (button)
-  // add eventListner "click" on save button
-  // on click: push textarea.textcontent to local storage
-  // (might need global variable events query selector to access and append content)
-  // testing might need to be done to see if unique ids need to be added to specify which text is saved?
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+  // [x]add global variable hours to query.selectorAll (hour-x)
+  //[x] add global variable buttons to query.selectorALL (button)
+  // []add eventListner "click" on save button
+  // []on click: push textarea.textcontent to local storage
+  // [](might need global variable events query selector to access and append content)
+  // []testing might need to be done to see if unique ids need to be added to specify which text is saved?
 
-  // MINE
-  // fetch current time
-  // note hour will have to be parsed from id(eg pull 9 from hour-9)
-  // check if id =< currentHour
-  // if id <currentHour, apply past class
-  // if id === currentHour, apply present class
-  // if id > currentHour, apply future class
-  // test if append will remove current class if class change needs to be made
-  // (ie changing past to present)
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -42,12 +32,29 @@ $(function () {
   // check for saved data in local storage
   // append and saved data (text) to appropriate textarea
   // note: see if individual hour-x ids will need to be coded individually. hope not.
-  // TODO: Add code to display the current date in the header of the page.
-
-  // MINE for date: run day.js for 3 letter month, 2 digit day, and full year
-  // MINE append to id currentDay
 });
 
-// day.js insert for current date in "month day, year" format
+// day.js insert for current date in "month day, year" format in the header
 const date = dayjs();
 $('#currentDay').text(date.format('MMM D, YYYY'));
+
+  // TODO: Add code to apply the past, present, or future class to each time
+  // block by comparing the id to the current hour. HINTS: How can the id
+  // attribute of each time-block be used to conditionally add or remove the
+  // past, present, and future classes? How can Day.js be used to get the
+  // current hour in 24-hour time?
+
+  // MINE
+  // THIS WILL NOT BE IN ABOVE FUNCTION keep separate and dynamically update time
+  // [x]check current time
+  // []note hour will have to be parsed from id(eg pull 9 from hour-9)
+  // []check if id =< currentHour
+  // []if id <currentHour, apply past class
+  // []if id === currentHour, apply present class
+  // []if id > currentHour, apply future class
+  // []test if append will remove current class if class change needs to be made
+  // (ie changing past to present)
+
+  // variable to log current time
+  const currentTime= dayjs().format('H')
+  console.log(currentTime)
