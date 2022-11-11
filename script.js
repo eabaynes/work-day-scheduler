@@ -45,7 +45,6 @@ $('#currentDay').text(date.format('MMM D, YYYY'));
   // current hour in 24-hour time?
 
   // MINE
-  // THIS WILL NOT BE IN ABOVE FUNCTION keep separate and dynamically update time
   // [x]check current time
   // []note hour will have to be parsed from id(eg pull 9 from hour-9)
   // []check if id =< currentHour
@@ -58,3 +57,7 @@ $('#currentDay').text(date.format('MMM D, YYYY'));
   // variable to log current time
   const currentTime= dayjs().format('H')
   console.log(currentTime)
+// todo parse number from 'hours'
+  function timeCheck() {
+    // compare hours to currentTime
+  }
