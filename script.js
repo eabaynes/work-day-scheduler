@@ -1,11 +1,4 @@
- // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-// $(document).ready(function (){
-//   loadStorage();
-// })
-
-
+//  todo: comment out javascript code
 
 // create a click event on buttons in hmtl
 $('button').on('click', handleClick)
