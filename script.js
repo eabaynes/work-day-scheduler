@@ -3,18 +3,18 @@
 // in the html.
 
 // select buttons in html
-const buttons = document.querySelectorAll('button')
-const hours = document.querySelectorAll('#hour-6, #hour-7, #hour-8, #hour-9, #hour-10, #hour-11, #hour-12, #hour-13, #hour-14, #hour-15, #hour-16, #hour-17, #hour-18')
-console.log(hours)
-// MINE review jquery, missed intro class. don't know what "wrap code in jquery" means
-$(function () {
+const buttons = $('button')
+
+$('button').on('click', handleClick)
+
+function handleClick (event) {
+  console.log('hi')
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  
   //MINE
   // [x]add global variable hours to query.selectorAll (hour-x)
   //[x] add global variable buttons to query.selectorALL (button)
@@ -32,32 +32,27 @@ $(function () {
   // check for saved data in local storage
   // append and saved data (text) to appropriate textarea
   // note: see if individual hour-x ids will need to be coded individually. hope not.
-});
+}
 
 // day.js insert for current date in "month day, year" format in the header
 const date = dayjs();
 $('#currentDay').text(date.format('MMM D, YYYY'));
 
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-
-  // MINE
-  // [x]check current time
-  // []note hour will have to be parsed from id(eg pull 9 from hour-9)
-  // []check if id =< currentHour
-  // []if id <currentHour, apply past class
-  // []if id === currentHour, apply present class
-  // []if id > currentHour, apply future class
-  // []test if append will remove current class if class change needs to be made
-  // (ie changing past to present)
-
   // variable to log current time
   const currentTime= dayjs().format('H')
   console.log(currentTime)
-// todo parse number from 'hours'
-  function timeCheck() {
-    // compare hours to currentTime
-  }
+
+ $(function() {
+    $('div').each(function(){
+      var idArray = this.id.split("-")
+      var hour = Number(idArray[1])
+      if (hour < currentTime) {
+        $("div").addClass("past")
+      } else if (hour === currentTime) {
+        $("div").addClass("present")
+      } else if (hour > currentTime) 
+      {$("div").addClass("future")
+    }
+    })
+  })
+ 
